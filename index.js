@@ -1,3 +1,4 @@
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const PDFParser = require("pdf2json");
@@ -11,7 +12,7 @@ pdfParser.on("pdfParser_dataReady", pdfData => {
     let regExpCode = new RegExp(BC_CODE_REGEX);
     
     let result = rawPdf.match(regExpCode);
-    fs.writeFileSync(path.join(__dirname, 'output', 'out.csv'), result.join('\n'));
+    fs.writeFileSync(path.join(__dirname, 'output', process.env.OUTPUT_FILE_NAME), result.join('\n'));
 });
 
-pdfParser.loadPDF(path.join(__dirname, 'source', 'bandcamp_codes.pdf'));
+pdfParser.loadPDF(path.join(__dirname, 'source', process.env.SOURCE_FILE_NAME));

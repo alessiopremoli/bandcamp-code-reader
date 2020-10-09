@@ -10,7 +10,7 @@
   "author": "Alessio Premoli",
   "license": "ISC",
   "dependencies": {
-    "node": "^14.13.0",
+    "dotenv": "^8.2.0",
     "pdf2json": "^1.2.0"
   }
 }
